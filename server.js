@@ -9,15 +9,21 @@ const requestListener = (request, response) => {
     if (url === "/") {
         if (method === "GET") {
             response.statusCode = 200;
-            response.end(`<p>Ini adalah Homepage</p>`);
+            response.end(JSON.stringify({
+                message: "Ini adalah homepage"
+            }));
         } else {
             response.statusCode = 400;
-            response.end(`<p>Halaman tidak dapat diakses dengan menggunakan ${method} request</p>`);
+            response.end(JSON.stringify({
+                message: `Halaman tidak dapat diakses dengan ${method} request`
+            }));
         }
     } else if (url === "/about") {
         if (method === "GET") {
             response.statusCode = 200;
-            response.end(`<p>Halo! Ini adalah halaman about!</p>`);
+            response.end(JSON.stringify({
+                message: `Halo! Ini adalah halaman about`
+            }));
         } else if (method === "POST") {
             let body = [];
 
@@ -29,15 +35,21 @@ const requestListener = (request, response) => {
                 body = Buffer.concat(body).toString();
                 const {name} = JSON.parse(body);
                 response.statusCode = 200;
-                response.end(`<p>Hi! ${name} ini adalah halaman about!</p>`);
+                response.end(JSON.stringify({
+                    message: `Hi! ${name} ini adalah halaman about!`
+                }));
             });
         } else {
             response.statusCode = 400;
-            response.end(`<p>Halamam tidak dapat diakses dengan menggunakan ${method} request</p>`);
+            response.end(JSON.stringify({
+                message: `Halamam tidak dapat diakses dengan menggunakan ${method} request`
+            }));
         }
     } else {
         response.statusCode = 404;
-        response.end(`<p>Halaman tidak ditemukan!</p>`);
+        response.end(JSON.stringify({
+            message: "Halaman tidak Ditemukan",
+        }));
     }
 };
 
