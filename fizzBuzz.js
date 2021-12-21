@@ -1,1 +1,5 @@
-class FizzBuzz {}
+class FizzBuzz {
+  constructor(name) {
+    this.name = name;
+  }
+}
