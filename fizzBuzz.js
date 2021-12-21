@@ -19,4 +19,10 @@ class FizzBuzz {
       }
     }
   }
+
+  sayHello(name) {
+    return `Hello ${name}, My name is ${this.name}`;
+  }
 }
+
+module.export = FizzBuzz;
