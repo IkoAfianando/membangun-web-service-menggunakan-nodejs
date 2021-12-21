@@ -25,4 +25,7 @@ class FizzBuzz {
   }
 }
 
-module.export = FizzBuzz;
+const fizzBuzz = new FizzBuzz("Iko Afianando");
+fizzBuzz.fizzBuzz(100);
+
+module.exports = FizzBuzz;
